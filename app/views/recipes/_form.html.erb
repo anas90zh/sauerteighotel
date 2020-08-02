@@ -1,0 +1,28 @@
+
+  <% if @recipe.errors.any?  %>  
+  <ul>
+    <% @recipe.errors.full_messages.each do |msg| %>
+      <li> <%= msg %></li>
+      <% end %>
+  </ul>
+  <% end %>
+
+  <%=form_for @recipe, html: {multipart: true} do |new| %>
+  <p>
+    <%= new.label :image %> <br/>
+    <%= new.file_field :image %>
+  </p>
+  <p>
+  <p>
+    <%= new.label :title %> <br/>
+    <%= new.text_field :title %>
+  </p>
+  <p>
+  <%= new.label :description %><br/>
+  <%= new.text_area :description %> 
+  </p>
+  <p>
+  <%= new.submit %>
+  
+ </p>
+  <% end %>
